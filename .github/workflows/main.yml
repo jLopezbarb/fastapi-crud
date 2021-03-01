@@ -36,4 +36,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        msg: "Preview environment available at https://api-app-${{ github.event.number }}-youngestdev.cloud.okteto.net"
+        msg: "Preview environment available at https://fastapi-pr-${{ github.event.number }}-youngestdev.cloud.okteto.net"
