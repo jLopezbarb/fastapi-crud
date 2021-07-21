@@ -24,4 +24,4 @@ jobs:
     - name: "Deploy the previews preview environment"
       uses: okteto/deploy-preview@master
       with:
-        name: pr-env
+        name: pr-env-youngestdev
