@@ -3,25 +3,28 @@
 name: Okteto Preview Deployment
 
 # Controls when the action will run. 
-on: 
+on:
   pull_request:
     branches:
       - main
-
 jobs:
-
-  devflow:
+  preview:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
       uses: actions/checkout@master
       
-    - uses: okteto/login@master
+    - name: Login
+      uses: okteto/login@master
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
-        url: ${{ secrets.OKTETO_URL }}
+        url: https://staging.okteto.dev
         
-    - name: "Deploy the previews preview environment"
+    - name: Deploy preview environment
       uses: okteto/deploy-preview@master
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: pr-env-youngestdev
+        name: pr-${{ github.event.number }}-youngestdev
+        scope: personal
+        timeout: 15m
