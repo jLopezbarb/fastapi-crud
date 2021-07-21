@@ -19,7 +19,7 @@ jobs:
     - uses: okteto/login@master
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
-        url: $ {{ secrets.OKTETO_URL }}
+        url: ${{ secrets.OKTETO_URL }}
         
     - name: "Deploy the previews preview environment"
       uses: okteto/deploy-preview@master
