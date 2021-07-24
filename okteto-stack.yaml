@@ -15,7 +15,7 @@ services:
       memory: 128Mi
 
   mongodb:
-    image: bitnami/mongodb:latest
+    image: bitnami/mongodba:latest
     ports:
       - 27017
     resources:
